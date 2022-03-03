@@ -16,7 +16,6 @@ A Legal AI Benchmark Dataset from Korean Legal Cases by [LBox](https://lbox.kr)
 ## How to use the dataset
 
 We use [`datasets` library](https://github.com/huggingface/datasets) from `Hugging Face`.
-
 ```python
 # !pip install datasets
 from datasets import load_dataset
@@ -34,6 +33,9 @@ data_summ = load_dataset("lbox/lbox_open", "summarization")
 data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 ```
 
+## Tutorial
+- [Explore the dataset on Colab](https://colab.research.google.com/drive/1CNkZzOfgOfhdJ-E6BYuv61iFMZSx62AU?usp=sharing)
+- [Build a simple baseline model on Colab](https://colab.research.google.com/drive/1TSzlyc8cslM_0cP-TnB0YhnUMcNd4o1h?usp=sharing)
 ## Dataset Description
 
 ### `casename_classification`
@@ -91,7 +93,7 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 
 ### `summarization`
 
-- Task: summarize casses from the supreme court of Korea.
+- Task: summarize cases from the supreme court of Korea.
 - The dataset is obtained from [LAW OPEN DATA](https://www.law.go.kr/LSO/main.do).
 - The dataset consists of 20k `(precendent, summary)` pairs.
 - 16,000 training, 2,000 validation, and 2,000 test examples
@@ -126,7 +128,7 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 ```
 
 - `id`: a data id.
-- `precedent`: a case from the Korean supreme court. It includes ruling (주문), claim (청구취지), claim of appeal (항소취지), and
+- `precedent`: a case from the court of Korea. It includes ruling (주문), claim (청구취지), claim of appeal (항소취지), and
   reasoning (이유).
 
 ## Licensing Information
