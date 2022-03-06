@@ -64,8 +64,8 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 
 ### `statute_classification`
 
-- Task: for a given facts (사실관계), predict related statues (법령).
-- The dataset consists of 2760 `(facts, statues)` pairs extracted from individual Korean legal cases.
+- Task: for a given facts (사실관계), predict related statutes (법령).
+- The dataset consists of 2760 `(facts, statutes)` pairs extracted from individual Korean legal cases.
 - There are 46 case name types and each type includes 60 examples
 - 2208 training, 276 validation, and 276 test examples
 
