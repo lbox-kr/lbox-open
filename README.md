@@ -109,7 +109,7 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 ```
 
 - `id`: a data id.
-- `summary`: a summary (판결요지) of given precedent (판례문)
+- `summary`: a summary (판결요지) of given precedent (판결문)
 - `precedent`: a case from the Korean supreme court.
 
 ### `case_corpus`
