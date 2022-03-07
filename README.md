@@ -1,4 +1,4 @@
-# LBox-Open
+# LBox Open
 
 A Legal AI Benchmark Dataset from Korean Legal Cases by [LBox](https://lbox.kr)
 
@@ -68,7 +68,6 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 - The dataset consists of 2760 `(facts, statutes)` pairs extracted from individual Korean legal cases.
 - There are 46 case name types and each type includes 60 examples.
 - 2208 training, 276 validation, and 276 test examples.
-
 #### Example
 
 ```json
@@ -109,7 +108,7 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 ```
 
 - `id`: a data id.
-- `summary`: a summary (판결요지) of given precedent (판례문).
+- `summary`: a summary (판결요지) of given precedent (판결문).
 - `precedent`: a case from the Korean supreme court.
 
 ### `case_corpus`
