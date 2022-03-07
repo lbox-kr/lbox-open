@@ -44,7 +44,7 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 - The dataset consists of 10k `(facts, case name)` pairs extracted from individual Korean legal cases.
 - There are 100 classes (casenames).
 - Each class has 100 corresponding examples.
-- 8000 training, 1000 validation, and 1000 test examples
+- 8000 training, 1000 validation, and 1000 test examples.
 
 #### Example
 
@@ -64,10 +64,10 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 
 ### `statute_classification`
 
-- Task: for a given facts (사실관계), predict related statues (법령).
-- The dataset consists of 2760 `(facts, statues)` pairs extracted from individual Korean legal cases.
-- There are 46 case name types and each type includes 60 examples
-- 2208 training, 276 validation, and 276 test examples
+- Task: for a given facts (사실관계), predict related statutes (법령).
+- The dataset consists of 2760 `(facts, statutes)` pairs extracted from individual Korean legal cases.
+- There are 46 case name types and each type includes 60 examples.
+- 2208 training, 276 validation, and 276 test examples.
 
 #### Example
 
@@ -96,7 +96,7 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 - Task: summarize cases from the supreme court of Korea.
 - The dataset is obtained from [LAW OPEN DATA](https://www.law.go.kr/LSO/main.do).
 - The dataset consists of 20k `(precendent, summary)` pairs.
-- 16,000 training, 2,000 validation, and 2,000 test examples
+- 16,000 training, 2,000 validation, and 2,000 test examples.
 
 #### Example
 
@@ -109,7 +109,7 @@ data_corpus = load_dataset("lbox/lbox_open", "case_corpus")
 ```
 
 - `id`: a data id.
-- `summary`: a summary (판결요지) of given precedent (판례문)
+- `summary`: a summary (판결요지) of given precedent (판례문).
 - `precedent`: a case from the Korean supreme court.
 
 ### `case_corpus`
