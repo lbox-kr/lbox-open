@@ -11,7 +11,7 @@ A Legal AI Benchmark Dataset from Korean Legal Cases by [LBox](https://lbox.kr)
 
 ## Updates
 
-- Mar 2022: We release `lbox_open_v0.1`!
+- Mar 2022: We release `lbox-open-v0.1`!
 
 ## How to use the dataset
 
