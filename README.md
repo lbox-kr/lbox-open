@@ -21,7 +21,7 @@ A multi-task benchmark for Korean legal language understanding and judgement pre
     - `case_corpus` is renamed to `precedent_corpus`
 - Mar 2022: We release `lbox-open-v0.1`!
 
-# Papers
+# Paper
 
 [A Multi-Task Benchmark for Korean Legal Language Understanding and Judgement Prediction](https://arxiv.org/abs/2206.05224)
 
