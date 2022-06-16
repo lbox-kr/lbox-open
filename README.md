@@ -32,8 +32,8 @@ A multi-task benchmark for Korean legal language understanding and judgement pre
 | **Model**         | casename       | statute        | ljp-criminal  | ljp-civil      | summarization    |
 |-------------------|----------------|----------------|-----------------------------------------------------------------------|----------------|------------------|
 |                   | EM             | EM             | F1-fine <br/>F1-imprisonment w/ labor<br/>F1-imprisonment w/o labor                                                                    | EM             | R1<br/>R2<br/>RL         | 
-| KoGPT2            | $77.5 \pm 0.1$ | $85.7 \pm 0.8$ | $49.9 \pm 1.7$ <br/> $67.5 \pm 1.1$ <br/>  $69.2 \pm 1.6$                     | $64.6 \pm 2.0$ | 35.1<br/> 24.2<br/> 34.6 | 
-| LCube-base (ours) | $80.0 \pm 1.2$ | $87.6 \pm 0.5$ | $46.4 \pm 2.8$ <br/>   $69.3 \pm 0.3$<br/>   $70.3 \pm 0.7$                     | $68.0 \pm 0.6$ | 31.0<br/> 20.7<br/> 30.8 | 
+| KoGPT2            | $77.5 \pm 0.1$ | $85.7 \pm 0.8$ | $49.9 \pm 1.7$ <br/> $67.5 \pm 1.1$ <br/>  $69.2 \pm 1.6$                     | $64.6 \pm 2.0$ | $35.1$<br/> $24.2$<br/> $34.6$ | 
+| LCube-base (ours) | $80.0 \pm 1.2$ | $87.6 \pm 0.5$ | $46.4 \pm 2.8$ <br/>   $69.3 \pm 0.3$<br/>   $70.3 \pm 0.7$                     | $68.0 \pm 0.6$ | $31.0$<br/> $20.7$<br/> $30.8$ | 
    - The errors are estimated from three independent experiments performed with different random seeds.
 # Dataset
 
