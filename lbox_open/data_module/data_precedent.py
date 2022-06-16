@@ -137,7 +137,7 @@ class PrecedentDataModule(pl.LightningDataModule):
         self.input_templates = input_templates
         self.target_parses_dict = cfg.model.target_parses_dict
         if len(self.target_parses_dict) > 1:
-            raise Exception("Multitask learning is not currently supported!")
+            raise Exception("Multitask learning is currently not supported!")
 
         self.use_local_data = cfg.data.use_local_data
         self.dataset_card = cfg.data.dataset_card

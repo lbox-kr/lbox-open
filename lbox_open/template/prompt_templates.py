@@ -4,7 +4,6 @@
 
 
 def gen_input_template_str(task, key, type):
-    # kor_key = ENG_TO_KOR_NAMES[key]
     if key == "fine_imprisonment_lvs":
         if type == 0:
             input_template_str = (
