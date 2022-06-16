@@ -64,7 +64,7 @@ data_corpus = load_dataset("lbox/lbox_open", "precedent_corpus")
 
 ```
 
-- [Explore the dataset on Colab](https://colab.research.google.com/drive/1Ww3c54Fy8fs6sfNQ3z-B5gYEPgb3nYHh?usp=sharing)
+- [Explore the dataset on Colab](https://colab.research.google.com/drive/1R4T91Ix__-4rjtxATh7JeTX69zYrmWy0?usp=sharing)
 
 ## Dataset Description
 ### `precedent_corpus`
@@ -88,7 +88,7 @@ data_corpus = load_dataset("lbox/lbox_open", "precedent_corpus")
 - Task: for the given facts (사실관계), a model is asked to predict the case name.
 - The dataset consists of 10k `(facts, case name)` pairs extracted from Korean precedents.
 - There are 100 classes (case categories) and each class contains 100 corresponding examples.
-- 8,000 training, 1,000 validation, 1,000 test, and 1,294 test2 examples. The test2 set consists of examples those do not overlap with the precedents in `precedent_corpus`.
+- 8,000 training, 1,000 validation, 1,000 test, and 1,294 test2 examples. The test2 set consists of examples that do not overlap with the precedents in `precedent_corpus`.
 
 - Example
 
@@ -110,7 +110,7 @@ data_corpus = load_dataset("lbox/lbox_open", "precedent_corpus")
 - Task: for a given facts (사실관계), a model is asked to predict related statutes (법령).
 - The dataset consists of 2760 `(facts, statutes)` pairs extracted from individual Korean legal cases.
 - There are 46 classes (case categories) and each class has 60 examples.
-- 2,208 training, 276 validation, 276 test, 538 test2 examples. The test2 set consists of examples those do not overlap with the precedents in `precedent_corpus`.
+- 2,208 training, 276 validation, 276 test, 538 test2 examples. The test2 set consists of examples that do not overlap with the precedents in `precedent_corpus`.
 - Example
 
 ```json
@@ -140,7 +140,7 @@ data_corpus = load_dataset("lbox/lbox_open", "precedent_corpus")
   act by compulsion” (강제추행), “obstruction of performance of official duties” (공무집행방해), “bodily injuries from traffic
   accident” (교통사고처리특례법위반(치상)), “drunk driving” (도로교통 법위반(음주운전)), “fraud” (사기), “inflicting bodily injuries” (상해), and
   “violence” (폭행)
-- 8,400 training, 1,050 validation, 1,050 test, 928 test2 examples. The test2 set consists of the test set examples those do not overlap with the precedents in `precedent_corpus`.
+- 8,400 training, 1,050 validation, 1,050 test, 928 test2 examples. The test2 set consists of the examples from the test set that do not overlap with the precedents in `precedent_corpus`.
 - Example
 ```json
 {
