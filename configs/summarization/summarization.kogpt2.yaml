@@ -68,11 +68,12 @@ train:
   profiler: null
   num_sanity_val_steps: 0
   val_check_interval: 1.0
-  validation_metric: em
-  validation_target_parse: statute_classification
+  validation_metric: rougeL
+  validation_target_parse: summarization
   validation_sub_param:
-    method: text_em
+    method: rougeL
     target_sub_parse:
+
 
 infer:
   max_length:
