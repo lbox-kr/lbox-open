@@ -11,7 +11,8 @@ A multi-task benchmark for Korean legal language understanding and judgement pre
 - [Minjoon Seo](mailto:minjoon@lbox.kr)
 
 # Updates
-
+- Oct 2, 2022: [`defamation corpus-v0.1`](https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/defamation_corpus/defamation_corpus.jsonl) has been added. The corpus consists of 768 criminal cases related to "defamation (명예훼손)". The corpus will be integrated into `precedent corpus` in the future (at the moment, there can be some overlap between `precedent corpus` and `defamation corpus-v0.1`). See also [this issue](https://github.com/lbox-kr/lbox-open/issues/4#issue-1393652876).
+- Sep 2022: Our paper is accepted for publication in NeurIPS 2022 Datasets and Benchmarks track! There will be major updates on the paper, the dataets, and the models soon! Meanwile, one can check the most recent version of our paper from [OpenReview](https://openreview.net/forum?id=TaARsI_Iio)
 - Jun 2022: We release `lbox-open-v0.2`!
   - Two legal judgement prediction tasks, `ljp_criminal`, `ljp-civil`, are added to LBox Open.
   - `LCube-base`, a LBox Legal Language model with 124M parameters, is added.
