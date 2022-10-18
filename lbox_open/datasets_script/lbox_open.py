@@ -1,6 +1,8 @@
 # LBox Open
 # Copyright (c) 2022-present LBox Co. Ltd.
 # CC BY-NC-ND 4.0
+# 2022.10.18, Wonseok: Add casename_classification_plus, statute_classification_plus, summarization_plus datasets
+
 
 import json
 
@@ -12,6 +14,7 @@ _CASENAME_CLASSIFICATION_FEATURES = {
     "casename": datasets.Value("string"),
     "facts": datasets.Value("string"),
 }
+
 
 _STATUTE_CLASSIFICATION_FEATURES = {
     "id": datasets.Value("int64"),
@@ -77,7 +80,7 @@ _LJP_CIVIL = {
     },
 }
 
-_SUMMARIZATION_CLASSIFICATION_FEATURES = {
+_SUMMARIZATION_FEATURES = {
     "id": datasets.Value("int64"),
     "summary": datasets.Value("string"),
     "precedent": datasets.Value("string"),
@@ -122,7 +125,14 @@ class LBoxOpen(datasets.GeneratorBasedBuilder):
             description="",
             features=_CASENAME_CLASSIFICATION_FEATURES,
             data_url="https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/casename_classification/v0.1.2/",
-            # data_url="https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/casename_classification/v0.1.0/",
+            citation="",
+            url="lbox.kr",
+        ),
+        LBoxOpenConfig(
+            name="casename_classification_plus",
+            description="",
+            features=_CASENAME_CLASSIFICATION_FEATURES,
+            data_url="https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/casename_classification/v0.1.2_plus/",
             citation="",
             url="lbox.kr",
         ),
@@ -131,7 +141,14 @@ class LBoxOpen(datasets.GeneratorBasedBuilder):
             description="",
             features=_STATUTE_CLASSIFICATION_FEATURES,
             data_url="https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/statute_classification/v0.1.2/",
-            # data_url="https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/statute_classification/v0.1.0/",
+            citation="",
+            url="lbox.kr",
+        ),
+        LBoxOpenConfig(
+            name="statute_classification_plus",
+            description="",
+            features=_STATUTE_CLASSIFICATION_FEATURES,
+            data_url="https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/statute_classification/v0.1.2_plus/",
             citation="",
             url="lbox.kr",
         ),
@@ -154,8 +171,16 @@ class LBoxOpen(datasets.GeneratorBasedBuilder):
         LBoxOpenConfig(
             name="summarization",
             description="",
-            features=_SUMMARIZATION_CLASSIFICATION_FEATURES,
+            features=_SUMMARIZATION_FEATURES,
             data_url="https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/summarization/v0.1.0/",
+            citation="",
+            url="lbox.kr",
+        ),
+        LBoxOpenConfig(
+            name="summarization_plus",
+            description="",
+            features=_SUMMARIZATION_FEATURES,
+            data_url="https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/summarization/v0.1.0_plus/",
             citation="",
             url="lbox.kr",
         ),

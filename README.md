@@ -11,7 +11,8 @@ A multi-task benchmark for Korean legal language understanding and judgement pre
 - [Minjoon Seo](mailto:minjoon@lbox.kr)
 
 # Updates
-- Oct 2, 2022: [`defamation corpus-v0.1`](https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/defamation_corpus/defamation_corpus.jsonl) has been added. The corpus consists of 768 criminal cases related to "defamation (명예훼손)". The corpus will be integrated into `precedent corpus` in the future (at the moment, there can be some overlap between `precedent corpus` and `defamation corpus-v0.1`). See also [this issue](https://github.com/lbox-kr/lbox-open/issues/4#issue-1393652876).
+- Oct 18, 2022: We release three new datasets `casename_classification_plus`, `statute_classification_plus`, and `summarization_plus`!  
+- Oct 2, 2022: [`defamation corpus-v0.1`](https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/defamation_corpus/defamation_corpus.jsonl) has been added. The corpus consists of 1,536 criminal cases related to "defamation (명예훼손)". The corpus will be integrated into `precedent corpus` in the future (at the moment, there can be some overlap between `precedent corpus` and `defamation corpus-v0.1`). See also [this issue](https://github.com/lbox-kr/lbox-open/issues/4#issue-1393652876).
 - Sep 2022: Our paper is accepted for publication in NeurIPS 2022 Datasets and Benchmarks track! There will be major updates on the paper, the dataets, and the models soon! Meanwile, one can check the most recent version of our paper from [OpenReview](https://openreview.net/forum?id=TaARsI_Iio)
 - Jun 2022: We release `lbox-open-v0.2`!
   - Two legal judgement prediction tasks, `ljp_criminal`, `ljp-civil`, are added to LBox Open.
@@ -28,14 +29,8 @@ A multi-task benchmark for Korean legal language understanding and judgement pre
 
 # Benchmarks
 
-- Last updated at Jun 16 2022
- 
-| **Model**         | casename       | statute        | ljp-criminal  | ljp-civil      | summarization    |
-|-------------------|----------------|----------------|-----------------------------------------------------------------------|----------------|------------------|
-|                   | EM             | EM             | F1-fine <br/>F1-imprisonment w/ labor<br/>F1-imprisonment w/o labor                                                                    | EM             | R1<br/>R2<br/>RL         | 
-| KoGPT2            | $77.5 \pm 0.1$ | $85.7 \pm 0.8$ | $49.9 \pm 1.7$ <br/> $67.5 \pm 1.1$ <br/>  $69.2 \pm 1.6$                     | $64.6 \pm 2.0$ | $35.1$<br/> $24.2$<br/> $34.6$ | 
-| LCube-base (ours) | $80.0 \pm 1.2$ | $87.6 \pm 0.5$ | $46.4 \pm 2.8$ <br/>   $69.3 \pm 0.3$<br/>   $70.3 \pm 0.7$                     | $68.0 \pm 0.6$ | $31.0$<br/> $20.7$<br/> $30.8$ | 
-   - The errors are estimated from three independent experiments performed with different random seeds.
+- Last updated at Oct 18 2022
+
 # Dataset
 
 ## How to use the dataset
@@ -48,9 +43,11 @@ from datasets import load_dataset
 
 # casename classficiation task
 data_cn = load_dataset("lbox/lbox_open", "casename_classification")
+ata_cn_plus = load_dataset("lbox/lbox_open", "casename_classification_plus")
 
 # statutes classification task
 data_st = load_dataset("lbox/lbox_open", "statute_classification")
+data_st_plus = load_dataset("lbox/lbox_open", "statute_classification_plus")
 
 # Legal judgement prediction tasks
 data_ljp_criminal = load_dataset("lbox/lbox_open", "ljp_criminal")
@@ -58,6 +55,7 @@ data_ljp_civil = load_dataset("lbox/lbox_open", "ljp_civil")
 
 # case summarization task
 data_summ = load_dataset("lbox/lbox_open", "summarization")
+data_summ_plus = load_dataset("lbox/lbox_open", "summarization_plus")
 
 # precedent corpus
 data_corpus = load_dataset("lbox/lbox_open", "precedent_corpus")
@@ -90,7 +88,7 @@ data_corpus = load_dataset("lbox/lbox_open", "precedent_corpus")
 - The dataset consists of 10k `(facts, case name)` pairs extracted from Korean precedents.
 - There are 100 classes (case categories) and each class contains 100 corresponding examples.
 - 8,000 training, 1,000 validation, 1,000 test, and 1,294 test2 examples. The test2 set consists of examples that do not overlap with the precedents in `precedent_corpus`.
-
+- We also provide `casename_classification_plus`, a dataset that extends `casename_classification` by including infrequent case categories. `casename_classification_plus` consists of 31,283 examples with total 603 case categories. See our paper for the detail.
 - Example
 
 ```json
@@ -112,6 +110,7 @@ data_corpus = load_dataset("lbox/lbox_open", "precedent_corpus")
 - The dataset consists of 2760 `(facts, statutes)` pairs extracted from individual Korean legal cases.
 - There are 46 classes (case categories) and each class has 60 examples.
 - 2,208 training, 276 validation, 276 test, 538 test2 examples. The test2 set consists of examples that do not overlap with the precedents in `precedent_corpus`.
+- We also release `statute_classification_plus`, a dataset that extends `statute_classification` by including less frequent case categories.`statute_classification_plus` includes 17,730 examples with total 434 case categories and 1,015 statutes.
 - Example
 
 ```json
@@ -238,6 +237,7 @@ data_corpus = load_dataset("lbox/lbox_open", "precedent_corpus")
 - The dataset is obtained from [LAW OPEN DATA](https://www.law.go.kr/LSO/main.do).
 - The dataset consists of 20k `(precendent, summary)` pairs.
 - 16,000 training, 2,000 validation, and 2,000 test examples.
+- We also provide `summarization_plus` by extending `summarization` with precedents with longer text making the task more challenging and realistic. In the extended dataset there are a total of 51,114 examples. The average number of tokens in the precedents and the corresponding summaries are 1,516 and 248 respectively. The maximum number of tokens in the input texts and the summaries are 93,420 and 6,536 respectively. 
 
 - Example
 
