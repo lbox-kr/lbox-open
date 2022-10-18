@@ -30,6 +30,20 @@ A multi-task benchmark for Korean legal language understanding and judgement pre
 # Benchmarks
 
 - Last updated at Oct 18 2022
+ 
+| **Model**         | casename       | statute        | ljp-criminal  | ljp-civil      | summarization    |
+|-------------------|----------------|----------------|-----------------------------------------------------------------------|----------------|------------------|
+|                   | EM             | EM             | F1-fine <br/>F1-imprisonment w/ labor<br/>F1-imprisonment w/o labor         | EM                 | R1<br/>R2<br/>RL         | 
+| KoGPT2            | $78.5 \pm 0.3$ | $85.7 \pm 0.8$ | $49.9 \pm 1.7$ <br/> $67.5 \pm 1.1$ <br/>  $69.2 \pm 1.6$                   |  $66.0 \pm 0.5$    | $47.2$<br/> $39.1$<br/> $45.7$ | 
+| KoGPT2   + `d.a.` | $81.9 \pm 0.2$ | $89.4 \pm 0.5$ | $49.8$  <br/> $65.4$ <br/>  $70.1$                                          |  $64.7 \pm 1.1$    | $49.2$<br/> $40.9$<br/> $47.7$ | 
+| LCube-base (ours) | $81.1 \pm 0.3$ | $87.6 \pm 0.5$ | $46.4 \pm 2.8$ <br/> $69.3 \pm 0.3$<br/>   $70.3 \pm 0.7$                   |  $67.6 \pm 1.3$    | $46.0$<br/> $37.7$<br/> $44.5$ | 
+| LCube-base + `d.a.` (ours) | $82.7 \pm 0.6$ | $89.3 \pm 0.4$ | $48.1 \pm 1.2$ <br/> $67.4 \pm 1.5$<br/>   $69.9 \pm 1.1$                   |  $60.9 \pm 1.1$    | $47.8$<br/> $39.5$<br/> $46.4$ | 
+| mt5-small         | $81.0 \pm 1.3$ | $87.2 \pm 0.3$ | $49.1 \pm 1.3$ <br/> $66.6 \pm 0.6$<br/>   $69.8 \pm 1.0$                   |  $68.9 \pm 0.8$    | $56.2$<br/> $47.8$<br/> $54.7$ | 
+| mt5-small + `d.a.`| $82.2 \pm 0.2$ | $88.8 \pm 0.5$ | $51.8 \pm 0.7$ <br/> $68.9 \pm 0.3$<br/>   $70.3 \pm 0.7$                   |  $69.1 \pm 0.1$    | $56.2$<br/> $47.7$<br/> $54.8$ | 
+
+   - The errors are estimated from three independent experiments performed with different random seeds.
+   - ROUGE scores are computed at word level.
+   - `d.a.` stands for domain adaptation, an additional pre-trainig with `Precedent` corpus only.
 
 # Dataset
 
