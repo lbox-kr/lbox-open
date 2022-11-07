@@ -9,7 +9,7 @@ sentencepiece==0.1.96
 
 # for OpenPrompt
 openprompt==1.0.0
-rouge_score==0.0.4
+rouge_score==0.1.2
 
 # for facts
 thefuzz==0.19.0
