@@ -8,11 +8,14 @@ from itertools import zip_longest
 from pathlib import Path
 from pprint import pprint
 
+
 import datasets
 import pytorch_lightning as pl
 import torch
 from openprompt.utils.metrics import generation_metric
 from transformers.generation_utils import GenerationMixin
+from rouge_score import rouge_scorer
+import numpy as np
 
 import lbox_open.utils.general_utils as gu
 from lbox_open import openprompt_wrapper
@@ -21,6 +24,7 @@ from lbox_open.parser.output_parser_utils import (
     cal_em_from_parses,
     get_parses_from_eval_results,
 )
+from lbox_open.metric import rouge_metric_utils
 
 
 class GenerativeParser(pl.LightningModule, GenerationMixin):
@@ -75,6 +79,9 @@ class GenerativeParser(pl.LightningModule, GenerationMixin):
                 )
                 self.generation_arguments["max_length"] = None
 
+        self.rouge_scorer = rouge_scorer.RougeScorer(
+            ["rouge1", "rouge2", "rougeL"], tokenizer=rouge_metric_utils.WhiteSpaceTokenizer()
+        )
     def forward(self, target_parse, batch):
         loss = self.prompt_models[target_parse](batch[target_parse])
         return loss
@@ -266,16 +273,22 @@ class GenerativeParser(pl.LightningModule, GenerationMixin):
         elif self.tparam.validation_metric == "rougeL":
             eval_score = {}
             for target_parse, _ in self.target_parses_dict.items():
-                rouge_metric = datasets.load_metric("rouge")
-                rouge_score = rouge_metric.compute(
-                    predictions=pr_texts_all[target_parse],
-                    references=gt_texts_all[target_parse],
-                )
+                pr_texts = pr_texts_all[target_parse]
+                gt_texts = gt_texts_all[target_parse]
+                target_scores = []
+                for pr_text, gt_text in zip_longest(pr_texts, gt_texts):
+                    r_score = self.rouge_scorer.score(
+                        prediction=pr_text, target=gt_text
+                    )
 
-                print(rouge_score)
-                eval_score[target_parse] = rouge_score[
-                    self.tparam.validation_metric
-                ].mid.fmeasure
+                    target_scores.append(
+                        r_score[self.tparam.validation_metric].fmeasure
+                    )
+
+                eval_score[target_parse] = np.mean(
+                    target_scores
+                )
+                print(eval_score)
 
         elif self.tparam.validation_metric == "em":
             # EM score
