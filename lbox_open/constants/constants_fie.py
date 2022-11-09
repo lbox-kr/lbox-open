@@ -1,6 +1,6 @@
 # LBox Open
 # Copyright (c) 2022-present LBox Co. Ltd.
-# CC BY-NC-ND 4.0
+# CC BY-NC 4.0
 
 ENG_TO_KOR_PARSE_NAMES_LJP_CRIMINAL = {
     "fine_lv": "벌금",
