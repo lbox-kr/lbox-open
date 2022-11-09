@@ -98,7 +98,10 @@ def get_model(cfg, plm, plm_tokenizer, input_templates):
             "summarization",
         ]:
             ckpt = torch.load(path_load)
-            ckpt_state_dict = ckpt["state_dict"]
+            if "state_dict" in ckpt:
+                ckpt_state_dict = ckpt["state_dict"]
+            else:
+                ckpt_state_dict = ckpt
             model.load_state_dict(ckpt_state_dict, strict=False)
 
         else:
