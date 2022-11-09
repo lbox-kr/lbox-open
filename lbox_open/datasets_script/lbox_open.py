@@ -1,6 +1,6 @@
 # LBox Open
 # Copyright (c) 2022-present LBox Co. Ltd.
-# CC BY-NC-ND 4.0
+# CC BY-NC 4.0
 # 2022.10.18, Wonseok: Add casename_classification_plus, statute_classification_plus, summarization_plus datasets
 
 
