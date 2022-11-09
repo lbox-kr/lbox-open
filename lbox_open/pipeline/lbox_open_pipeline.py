@@ -88,7 +88,6 @@ def get_model(cfg, plm, plm_tokenizer, input_templates):
         raise NotImplementedError
 
     if cfg.train.weight.trained:
-        old_format = cfg.train.weight.get("old_format", False)
         path_load = Path(cfg.train.weight.path)
 
         if cfg.model.task in [
@@ -100,27 +99,7 @@ def get_model(cfg, plm, plm_tokenizer, input_templates):
         ]:
             ckpt = torch.load(path_load)
             ckpt_state_dict = ckpt["state_dict"]
-
-            mapping_weight_names = {
-                f"prompt_models.{target_parse}.soft_embedding.weight": f"prompt_models.{target_parse}.prompt_model.template.soft_embedding.weight"
-                for target_parse in cfg.model.target_parses_dict
-            }
-
-            new_ckpt_state_dict = {}
-            for i, (mutated_k, org_k) in enumerate(mapping_weight_names.items()):
-                print(org_k)
-                print(mutated_k)
-                if old_format:
-                    new_ckpt_state_dict[org_k] = ckpt_state_dict[mutated_k]
-                else:
-                    new_ckpt_state_dict[org_k] = ckpt_state_dict[org_k]
-
-            if not cfg.model.plm.freeze:
-                plm_names = [x for x in ckpt_state_dict.keys() if "plm" in x]
-                for k in plm_names:
-                    new_ckpt_state_dict[k] = ckpt_state_dict[k]
-
-            model.load_state_dict(new_ckpt_state_dict, strict=False)
+            model.load_state_dict(ckpt_state_dict, strict=False)
 
         else:
             raise NotImplementedError
