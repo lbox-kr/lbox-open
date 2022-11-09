@@ -12,6 +12,7 @@ A multi-task benchmark for Korean legal language understanding and judgement pre
 
 # Updates
 - Nov  8, 2022: We release [`legal-mt5-small`], a domain adapted mt5-small using `precedent_corpus`. We also release the `legal-mt5-small` fine-tuned on the `summarization` dataset. Both models can be download from [here](https://drive.google.com/file/d/1lZaUtDPCkAOcwaxBzFo-QHecGAQendOd/view?usp=share_link)! To use the models, `cd [project-dir]; tar xvfz legal-mt5-small.tar.gz`.
+- Oct 25, 2022: [`act_on_special_cases_concerning_the_settlement_of_traffic_accidents_corpus`](https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/act_on_special_cases_concerning_the_settlement_of_traffic_accidents_corpus/act_on_special_cases_concerning_the_settlement_of_traffic_accidents_corpus.jsonl) corpus (고통사고처리특례법위반(치상)) has been released. The corpus consists of 768 criminal cases related to "defamation (명예훼손)". The corpus will be integrated into `precedent corpus` in the future (the overlap between `precedent corpus` and `defamation corpus-v0.1` is expected). See also [this issue](https://github.com/lbox-kr/lbox-open/issues/9).
 - Oct 18, 2022: We release three new datasets `casename_classification_plus`, `statute_classification_plus`, and `summarization_plus`!  
 - Oct 2, 2022: [`defamation corpus-v0.1`](https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/defamation_corpus/defamation_corpus.jsonl) has been added. The corpus consists of 1,536 criminal cases related to "defamation (명예훼손)". The corpus will be integrated into `precedent corpus` in the future (at the moment, there can be some overlap between `precedent corpus` and `defamation corpus-v0.1`). See also [this issue](https://github.com/lbox-kr/lbox-open/issues/4#issue-1393652876).
 - Sep 2022: Our paper is accepted for publication in NeurIPS 2022 Datasets and Benchmarks track! There will be major updates on the paper, the dataets, and the models soon! Meanwile, one can check the most recent version of our paper from [OpenReview](https://openreview.net/forum?id=TaARsI_Iio)
@@ -343,4 +344,4 @@ See also  `scripts/test_[TASK].sh`
 
 Copyright 2022-present [LBox Co. Ltd.](https://lbox.kr/)
 
-Licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+Licensed under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)

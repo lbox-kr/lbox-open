@@ -1,6 +1,6 @@
 # LBox Open
 # Copyright (c) 2022-present LBox Co. Ltd.
-# CC BY-NC-ND 4.0
+# CC BY-NC 4.0
 
 from collections import defaultdict
 
