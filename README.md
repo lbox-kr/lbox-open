@@ -11,6 +11,10 @@ A multi-task benchmark for Korean legal language understanding and judgement pre
 - [Minjoon Seo](mailto:minjoon@lbox.kr)
 
 # Updates
+- Dec 2, 2022: We release [additional 1024 examples of `drunk driving` cases](https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/judgement_prediction/ljp_criminal_drunk_driving_plus_1024.jsonl) for `ljp_criminal` task. Compared to `ljp_criminal` data, it includes the parses extracted from the facts (blood alchol level, driving distance, types of car, previous criminal history) and the suspension of exeuction period. See also [this issue](https://github.com/lbox-kr/lbox-open/issues/10). The data shall be integrated to `ljp_criminal` in the next release.
+  
+- Dec 2, 2022: We will present our recent work ["Data-efficient End-to-end Information Extraction for Statistical Legal Analysis"](https://arxiv.org/abs/2211.01692) at [NLLP workshop @ EMNLP22](https://nllpw.org/workshop/)!
+  
 - Nov  8, 2022: We release [`legal-mt5-small`], a domain adapted mt5-small using `precedent_corpus`. We also release the `legal-mt5-small` fine-tuned on the `summarization` dataset. Both models can be download from [here](https://drive.google.com/file/d/1lZaUtDPCkAOcwaxBzFo-QHecGAQendOd/view?usp=share_link)! To use the models, `cd [project-dir]; tar xvfz legal-mt5-small.tar.gz`.
 - Oct 25, 2022: [`act_on_special_cases_concerning_the_settlement_of_traffic_accidents_corpus`](https://lbox-open.s3.ap-northeast-2.amazonaws.com/precedent_benchmark_dataset/act_on_special_cases_concerning_the_settlement_of_traffic_accidents_corpus/act_on_special_cases_concerning_the_settlement_of_traffic_accidents_corpus.jsonl) corpus (고통사고처리특례법위반(치상)) has been released. The corpus consists of 768 criminal cases. The corpus will be integrated into `precedent corpus` in the future (the overlap between `precedent corpus` and `defamation corpus-v0.1` is expected). See also [this issue](https://github.com/lbox-kr/lbox-open/issues/9).
 - Oct 18, 2022: We release three new datasets `casename_classification_plus`, `statute_classification_plus`, and `summarization_plus`!  
