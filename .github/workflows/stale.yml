@@ -1,0 +1,36 @@
+name: Stale pull requests
+
+on:
+  schedule:
+    - cron: "31 1 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  close-stale-pull-requests:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close inactive pull requests
+        uses: actions/stale@v11.0.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-issue-stale: -1
+          days-before-issue-close: -1
+          days-before-pr-stale: 30
+          days-before-pr-close: 1
+          stale-pr-label: stale
+          stale-pr-message: |
+            이 PR은 30일 동안 활동이 없어 stale로 표시되었습니다.
+            1일 동안 댓글이나 새 커밋이 없으면 자동으로 닫히고 head 브랜치도 삭제됩니다.
+          close-pr-message: |
+            이 PR은 stale 표시 후 1일 동안 추가 활동이 없어 자동으로 닫혔습니다.
+            head 브랜치도 함께 삭제합니다.
+          remove-pr-stale-when-updated: true
+          delete-branch: true
+          operations-per-run: 500
+          ascending: true
