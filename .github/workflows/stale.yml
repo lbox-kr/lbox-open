@@ -2,29 +2,31 @@ name: Stale pull requests
 
 on:
   schedule:
-    - cron: "31 1 * * 1"
+    - cron: "31 1 * * *"
   workflow_dispatch:
 
 permissions: {}
 
 jobs:
-  mark-stale:
+  close-stale-pull-requests:
     permissions:
       issues: write
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - name: Mark inactive pull requests as stale
+      - name: Close inactive pull requests
         uses: actions/stale@v11.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           days-before-issue-stale: -1
           days-before-issue-close: -1
           days-before-pr-stale: 30
-          days-before-pr-close: -1
+          days-before-pr-close: 0
           stale-pr-label: stale
-          stale-pr-message: |
-            이 PR은 30일 동안 활동이 없어 stale로 표시되었습니다.
-            계속 진행하려면 댓글을 남기거나 새 커밋을 push해 주세요.
+          stale-pr-message: ""
+          close-pr-message: |
+            이 PR은 30일 동안 활동이 없어 자동으로 닫혔습니다.
+            계속 진행하려면 PR을 다시 열고 댓글이나 새 커밋으로 활동을 남겨 주세요.
           remove-pr-stale-when-updated: true
+          operations-per-run: 500
           ascending: true
